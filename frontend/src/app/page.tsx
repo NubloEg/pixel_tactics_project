@@ -4,8 +4,6 @@ import Image from "next/image";
 import React from "react";
 
 export default function Home() {
-  const [users, setUsers] = React.useState([]);
-
   React.useEffect(() => {
     fetch("http://localhost:4200/users")
       .then((response) => response.json())
