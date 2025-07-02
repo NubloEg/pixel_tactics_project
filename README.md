@@ -14,6 +14,7 @@
  - Создание игры
   ![CreateGame](https://github.com/NubloEg/pixel_tactics_project/blob/main/Readme/images/CreateGame.png)
  - Просмотр карты
+
    ![Card](https://github.com/NubloEg/pixel_tactics_project/blob/main/Readme/images/Card.png)
  - Игра (в первой итерации возможно упрощение)
   ![GameField](https://github.com/NubloEg/pixel_tactics_project/blob/main/Readme/images/GameField.png)
