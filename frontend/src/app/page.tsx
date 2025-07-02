@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Home() {
   React.useEffect(() => {
-    fetch("http://localhost:4200/users")
+    fetch("https://pixel-tactics-project.onrender.com/users")
       .then((response) => response.json())
       .then((data) => console.log(data));
   }, []);
