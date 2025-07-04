@@ -18,3 +18,23 @@ export async function login(
 
   return res.json();
 }
+
+export async function register(
+  username: string,
+  email: string,
+  password: string
+): Promise<{ accessToken: string }> | never {
+  const res = await fetch(`${API_URL}/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, email, password }),
+    credentials: "include",
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.message || "Ошибка при регистрации");
+  }
+
+  return res.json();
+}

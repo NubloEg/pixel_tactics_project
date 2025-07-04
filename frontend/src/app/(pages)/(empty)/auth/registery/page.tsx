@@ -1,9 +1,23 @@
+"use client";
+
+import { register } from "@/app/shared/api/auth/api";
 import UIButton from "@/app/shared/ui/UIButton/UIButton";
 import UIInput from "@/app/shared/ui/UIInput/UIInput";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function page() {
+export default function Page() {
+  const { push } = useRouter();
+
+  const onHandleClick = async () => {
+    const isLogin = await register("Егор", "gaf555@m.ru", "eeggoorr1");
+    console.log(isLogin);
+    if (isLogin) {
+      push("/");
+    }
+  };
+
   return (
     <>
       <h1 className="text-[48px] text-center">Логин</h1>
@@ -14,7 +28,7 @@ export default function page() {
       </div>
       <Link href="/auth/login">login</Link>
 
-      <UIButton>Регистрация</UIButton>
+      <UIButton onClick={onHandleClick}>Регистрация</UIButton>
     </>
   );
 }
