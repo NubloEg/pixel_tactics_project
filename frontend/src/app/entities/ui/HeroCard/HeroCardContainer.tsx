@@ -12,7 +12,7 @@ export function HeroCardContainer({ id }: { id: number }) {
   const [isOpen, setIsOpen] = useState(false);
   const isLeaderInitial = false;
   const heroInfo: CardInfo = {
-    id: 1,
+    id: id,
     iconHero: assassin,
     hero: {
       name: "Ассасин",
