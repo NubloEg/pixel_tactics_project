@@ -1,19 +1,16 @@
-import CardField from "@/entites/ui/CardField/CardField";
-import Draggable from "@/shared/ui/Draggable/Draggable";
-import Droppable from "@/shared/ui/Droppable/Droppable";
 import UIAvatar from "@/shared/ui/UIAvatar/UIAvatar";
 import UIButton from "@/shared/ui/UIButton/UIButton";
 import UIInput from "@/shared/ui/UIInput/UIInput";
 import UILink from "@/shared/ui/UILink/UILink";
-import { DndContext, DragEndEvent } from "@dnd-kit/core";
+// import { DndContext, DragEndEvent } from "@dnd-kit/core";
 
 export default function ComponentsUI() {
-  function handleDragEnd(event: DragEndEvent) {
-    console.log("event", event);
-    if (event.over && event.over.id === "droppable") {
-      console.log("DragEnd");
-    }
-  }
+  // function handleDragEnd(event: DragEndEvent) {
+  //   console.log("event", event);
+  //   if (event.over && event.over.id === "droppable") {
+  //     console.log("DragEnd");
+  //   }
+  // }
 
   return (
     <div className="flex flex-col gap-[24px]">
@@ -68,7 +65,7 @@ export default function ComponentsUI() {
       <div className="flex flex-col gap-[12px]">
         <h1>Drag&Drop</h1>
         <div className="flex gap-[6px] justify-center">
-          <DndContext
+          {/* <DndContext
             onDragEnd={handleDragEnd}
             onDragOver={() => console.log("Пересеклось")}
           >
@@ -80,7 +77,7 @@ export default function ComponentsUI() {
               </div>
               {/* <Draggable>
               <div className="h-[350px] w-[250px] bg-green-500">Card</div>
-            </Draggable> */}
+            </Draggable> 
               <div className="gameSpace">
                 <Droppable>
                   <CardField />
@@ -95,7 +92,7 @@ export default function ComponentsUI() {
                 <CardField />
               </div>
             </div>
-          </DndContext>
+          </DndContext> */}
         </div>
       </div>
     </div>
