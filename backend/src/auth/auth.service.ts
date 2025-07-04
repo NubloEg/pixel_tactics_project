@@ -109,7 +109,7 @@ export class AuthService {
   }
 
   async logout(response: Response) {
-    this.setCookie(response, 'refreshToken', new Date(0));
+    this.setCookie(response, 'refreshToken', '', new Date(0));
 
     return true;
   }
@@ -117,18 +117,34 @@ export class AuthService {
   private auth(res: Response, id: number) {
     const { accessToken, refreshToken } = this.generateTokens(id);
 
-    this.setCookie(res, refreshToken, new Date(Date.now() + 60 * 60 * 24 * 7));
+    this.setCookie(
+      res,
+      'accessToken',
+      accessToken,
+      new Date(Date.now() + 60 * 60 * 24 * 7),
+    );
+    this.setCookie(
+      res,
+      'refreshToken',
+      refreshToken,
+      new Date(Date.now() + 60 * 60 * 24 * 7),
+    );
 
-    return { accessToken };
+    return true;
   }
 
-  private setCookie(res: Response, value: string, expires: Date) {
-    res.cookie('refreshToken', value, {
+  private setCookie(
+    res: Response,
+    cookieName: string,
+    value: string,
+    expires: Date,
+  ) {
+    res.cookie(cookieName, value, {
       httpOnly: true,
       domain: this.COOKIE_DOMAIN,
       expires,
       secure: !isDev(this.configService),
-      sameSite: isDev(this.configService) ? 'none' : 'lax',
+      sameSite: !isDev(this.configService) ? 'none' : 'lax',
     });
   }
 

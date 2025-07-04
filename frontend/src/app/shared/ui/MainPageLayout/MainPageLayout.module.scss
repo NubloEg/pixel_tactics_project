@@ -1,0 +1,8 @@
+.wrapper::-webkit-scrollbar {
+  width: 4px; /* ширина scrollbar */
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: rgb(64, 64, 243); /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+}

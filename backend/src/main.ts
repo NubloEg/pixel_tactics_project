@@ -16,6 +16,7 @@ async function bootstrap() {
   //Корсы
   app.enableCors({
     origin: process.env.ORIGIN ?? 'http://localhost:3000',
+    credentials: true,
   });
 
   //SWAGER Настройки

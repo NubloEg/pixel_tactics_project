@@ -1,0 +1,136 @@
+//@import url("https://fonts.googleapis.com/css2?family=Tiny5&display=swap");
+
+.wrapper {
+  position: relative;
+  width: max-content;
+  .flip_card {
+    background-color: transparent;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+
+    .flip_card_inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: all 1s;
+      will-change: transform;
+
+      .card,
+      .backCard {
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        cursor: pointer;
+      }
+
+      .card {
+        font-family: "Open Sans", serif;
+        background: linear-gradient(
+          180deg,
+          rgba(223, 230, 236, 1) 0%,
+          rgba(211, 217, 202, 1) 100%
+        );
+        display: flex;
+        flex-direction: column;
+        transition: all 0.5s;
+
+        .heroInfo {
+          text-align: center;
+          height: 100%;
+          flex: 1;
+          display: flex;
+          position: relative;
+        }
+
+        .ability {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          &.Vanguard {
+            background: #eececb !important;
+            border-color: #a22b17 !important;
+          }
+
+          &.Flank {
+            background: #acd37b !important;
+            border-color: #354c1a !important;
+          }
+
+          &.Rear {
+            background: #99c9e1 !important;
+            border-color: #417599 !important;
+          }
+
+          &.Order {
+            background: #d5bbcf !important;
+            border-color: #591648 !important;
+          }
+
+          .iconsAbility {
+            flex: 1;
+          }
+
+          .discription {
+            text-align: center;
+            flex: 1;
+          }
+        }
+      }
+
+      .backCard {
+        transition: all 0.5s;
+        top: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(226, 186, 186, 1) 50%,
+          rgba(148, 128, 129, 1) 100%
+        );
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+
+        .backCardBottom {
+          display: flex;
+          position: absolute;
+          justify-content: space-between;
+        }
+      }
+    }
+
+    &.flip_card {
+      &.switch {
+        .flip_card_inner {
+          animation: 0.4s ease-in forwards switchCard;
+        }
+      }
+
+      &.switchReturn {
+        .flip_card_inner {
+          animation: 0.4s ease-in forwards switchBackCard;
+        }
+      }
+    }
+  }
+}
+
+@keyframes switchCard {
+  0% {
+    transform-style: preserve-3d;
+  }
+
+  100% {
+    transform-style: preserve-3d;
+  }
+}
+
+@keyframes switchBackCard {
+  0% {
+    transform-style: preserve-3d;
+  }
+
+  100% {
+  }
+}

@@ -1,0 +1,29 @@
+.red {
+  border-color: #a22b17;
+  background: var(--redLight);
+  transition: all 0.3s;
+  &:hover {
+    border-color: #b43721;
+    background: #fae2df;
+  }
+}
+
+.green {
+  border-color: #354c1a;
+  background: #acd37b;
+  transition: all 0.3s;
+  &:hover {
+    border-color: #415c21;
+    background: #c0e98f;
+  }
+}
+
+.blue {
+  border-color: #417599;
+  background: #99c9e1;
+  transition: all 0.3s;
+  &:hover {
+    border-color: #5085aa;
+    background: #a6d6ee;
+  }
+}
