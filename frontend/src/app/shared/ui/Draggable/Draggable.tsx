@@ -19,7 +19,6 @@ export default function Draggable(props: {
   //     }
   //   : undefined;
 
-  // console.log("Draggable", draggableSettings);
   return (
     <button
       className="h-[max-content]"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { UIModal } from "@/shared/ui/UIModal/UIModal";
 import ReactDOM from "react-dom";
 import assassin from "@/entities/assets/pixelHero/AssassinPixel.png";
@@ -43,7 +43,7 @@ export function HeroCardContainer({ id }: { id: number }) {
   };
 
   return (
-    <>
+    <Fragment data-testid="hero-card">
       <HeroCardSettings
         isLeaderInition={isLeaderInitial}
         setIsShow={setIsOpen}
@@ -61,6 +61,6 @@ export function HeroCardContainer({ id }: { id: number }) {
           </UIModal>,
           document.body
         )}
-    </>
+    </Fragment>
   );
 }

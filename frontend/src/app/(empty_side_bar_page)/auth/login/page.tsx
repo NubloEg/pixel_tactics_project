@@ -12,7 +12,6 @@ export default function Page() {
 
   const onHandleClick = async () => {
     const isLogin = await login("gaf555@m.ru", "eeggoorr1");
-    console.log(isLogin);
     if (isLogin) {
       push("/");
     }
