@@ -34,6 +34,8 @@ jobs:
       - name: Build frontend
         working-directory: frontend
         run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
       - name: Deploy frontend to Vercel
         uses: amondnet/vercel-action@v20
@@ -45,6 +47,7 @@ jobs:
           vercel-args: "--prod"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
   backend:
     name: Build and Deploy Backend (Node.js/NestJS)
@@ -85,4 +88,5 @@ jobs:
           curl -X POST https://api.render.com/deploy/srv-${RENDER_SERVICE_ID} \
             -H "Authorization: Bearer ${RENDER_API_KEY}" \
             -H "Accept: application/json" \
-            -H "Content-Type: application/json"
+            -H "Content-Type: application/json" \
+            -d '{}'
