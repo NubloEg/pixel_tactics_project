@@ -1,5 +1,9 @@
+"use client";
+
 // import Achievement from "@/entities/ui/Achievement/Achievement";
 // import ProfileInfo from "@/shared/ui/ProfileInfo/ProfileInfo";
+import { logout } from "@/app/shared/api/auth/api";
+import UIButton from "@/app/shared/ui/UIButton/UIButton";
 import ProgressBar from "@/shared/ui/ProgressBar/ProgressBar";
 import UIAvatar from "@/shared/ui/UIAvatar/UIAvatar";
 import React from "react";
@@ -14,6 +18,11 @@ export default function Profile() {
       maxExp: 10000,
     },
   };
+
+  async function onClickLogout() {
+    await logout();
+    location.replace("/auth");
+  }
 
   return (
     <div className="flex flex-col gap-[1.25vw]">
@@ -49,6 +58,9 @@ export default function Profile() {
           />
         ))} */}
       </div>
+      <UIButton onClick={onClickLogout} className="align-bottom" variant="red">
+        Выйти
+      </UIButton>
     </div>
   );
 }

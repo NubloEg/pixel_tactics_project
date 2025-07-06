@@ -6,7 +6,7 @@ export default function HomePage() {
       {Array(5)
         .fill(0)
         .map((el, index) => (
-          <HeroCardContainer key={index} id={index} />
+          <HeroCardContainer key={index} id={index} data-testid="hero-card" />
         ))}
     </div>
   );

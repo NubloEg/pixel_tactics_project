@@ -36,3 +36,17 @@ export async function register(
 
   return res.json();
 }
+
+export async function logout(): Promise<void> | never {
+  const res = await fetch(`/api/auth/logout`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.message || "Ошибка при выходе");
+  }
+
+  return res.json();
+}

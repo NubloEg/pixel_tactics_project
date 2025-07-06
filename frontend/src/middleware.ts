@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const PUBLIC_ROUTES = ["/auth/login", "/auth/register", "/bg"];
+const PUBLIC_ROUTES = ["/auth", "/bg"];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -9,10 +9,10 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get("accessToken")?.value;
 
   const isPublic = PUBLIC_ROUTES.some((route) => pathname.startsWith(route));
-  const isPagesPath = pathname !== "/" && pathname.split("/")[1] !== "api";
+  const isPagesPath = pathname.split("/")[1] !== "api";
 
   if (!isPublic && isPagesPath && !token) {
-    const loginUrl = new URL("/auth/login", request.url);
+    const loginUrl = new URL("/auth", request.url);
     return NextResponse.redirect(loginUrl);
   }
 
