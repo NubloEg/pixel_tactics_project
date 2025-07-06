@@ -7,6 +7,7 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const token = request.cookies.get("accessToken")?.value;
+  console.log("TOKEN IN MIDDLEWARE:", token);
 
   const isPublic = PUBLIC_ROUTES.some((route) => pathname.startsWith(route));
   const isPagesPath = pathname !== "/" && pathname.split("/")[1] !== "api";
