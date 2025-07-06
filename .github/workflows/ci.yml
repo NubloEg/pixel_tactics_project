@@ -20,19 +20,15 @@ jobs:
           node-version: 18
 
       - name: Install frontend dependencies
-        working-directory: frontend
         run: npm ci
 
       - name: Lint frontend
-        working-directory: frontend
         run: npm run lint
 
       - name: Test frontend
-        working-directory: frontend
         run: npm test -- --passWithNoTests
 
       - name: Build frontend
-        working-directory: frontend
         run: npm run build
         env:
           NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
@@ -43,7 +39,6 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_FRONTEND_PROJECT_ID }}
-          working-directory: frontend
           vercel-args: "--prod"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -64,19 +59,15 @@ jobs:
           node-version: 18
 
       - name: Install backend dependencies
-        working-directory: backend
         run: npm ci
 
       - name: Lint backend
-        working-directory: backend
         run: npm run lint
 
       - name: Test backend
-        working-directory: backend
         run: npm test -- --passWithNoTests
 
       - name: Build backend
-        working-directory: backend
         run: npm run build
 
       # Деплой на Render (пример)
