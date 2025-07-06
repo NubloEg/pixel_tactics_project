@@ -1,10 +1,8 @@
-import { API_URL } from "../config";
-
 export async function login(
   email: string,
   password: string
 ): Promise<{ accessToken: string }> | never {
-  const res = await fetch(`${API_URL}/auth/login`, {
+  const res = await fetch(`/api/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -24,7 +22,7 @@ export async function register(
   email: string,
   password: string
 ): Promise<{ accessToken: string }> | never {
-  const res = await fetch(`${API_URL}/auth/register`, {
+  const res = await fetch(`/api/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, email, password }),

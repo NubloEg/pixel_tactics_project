@@ -28,7 +28,9 @@ export default function Page() {
       </div>
       <Link href="/auth/login">login</Link>
 
-      <UIButton onClick={onHandleClick}>Регистрация</UIButton>
+      <UIButton onLoad={() => <span>Load</span>} onClick={onHandleClick}>
+        Регистрация
+      </UIButton>
     </>
   );
 }
