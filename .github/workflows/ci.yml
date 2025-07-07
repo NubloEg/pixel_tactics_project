@@ -75,9 +75,11 @@ jobs:
         run: npm test -- --passWithNoTests
 
       - name: Generate Prisma Client
+        working-directory: backend
         run: npx prisma generate
 
       - name: Run Migrations (если нужно)
+        working-directory: backend
         run: npx prisma migrate deploy
 
       - name: Build backend
