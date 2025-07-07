@@ -52,7 +52,6 @@ jobs:
   backend:
     name: Build and Deploy Backend (Node.js/NestJS)
     runs-on: ubuntu-latest
-    needs: frontend
 
     steps:
       - name: Checkout repo
@@ -75,9 +74,15 @@ jobs:
         working-directory: backend
         run: npm test -- --passWithNoTests
 
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - name: Run Migrations (если нужно)
+        run: npx prisma migrate deploy
+
       - name: Build backend
         working-directory: backend
-        run: npm install && npx prisma migrate deploy && npm run build
+        run: npm run build
 
       # Деплой на Render (пример)
       - name: Deploy backend to Render
