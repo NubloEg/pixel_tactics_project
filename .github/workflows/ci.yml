@@ -78,9 +78,11 @@ jobs:
         working-directory: backend
         run: npx prisma generate
 
-      - name: Run Migrations (если нужно)
+      - name: Run Migrations
         working-directory: backend
         run: npx prisma migrate deploy
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Build backend
         working-directory: backend
