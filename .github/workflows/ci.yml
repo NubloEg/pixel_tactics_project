@@ -82,7 +82,7 @@ jobs:
         working-directory: backend
         run: npx prisma migrate deploy
         env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Build backend
         working-directory: backend
