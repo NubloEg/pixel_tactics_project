@@ -77,7 +77,7 @@ jobs:
 
       - name: Build backend
         working-directory: backend
-        run: npm run build
+        run: npm install && npx prisma migrate deploy && npm run build
 
       # Деплой на Render (пример)
       - name: Deploy backend to Render
