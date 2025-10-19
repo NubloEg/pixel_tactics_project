@@ -39,7 +39,6 @@ export default function Game() {
           <div className="bg-gray-400 w-[30%]">right</div>
         </div>
       </div>
-      {/* <ComponentsUI /> */}
     </>
   );
 }

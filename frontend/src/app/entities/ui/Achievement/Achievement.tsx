@@ -4,6 +4,7 @@ import { IAchievement } from "@/app/store/bd";
 import UIAvatar from "@/shared/ui/UIAvatar/UIAvatar";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+
 export default function Achievement({
   achievement,
   size,
@@ -50,7 +51,7 @@ export default function Achievement({
                 image={achievement?.icon}
                 size={"20rem"}
               />
-              <h1 className="text-[2vw]">
+              <h1 className="text-[2vw] text-center">
                 {achievement?.name || "Name achive"}
               </h1>
               <p className="text-gray-400 text-center">

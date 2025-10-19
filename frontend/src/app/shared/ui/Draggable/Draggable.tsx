@@ -1,32 +1,18 @@
-//import { useDraggable } from "@dnd-kit/core";
-import React, { ReactNode } from "react";
+import React from "react";
+import { useDraggable } from "@dnd-kit/core";
+import { CSS } from "@dnd-kit/utilities";
 
-export default function Draggable(props: {
-  children: ReactNode;
-  id: string;
-  completerTransform?: { x: string; y: string };
-}) {
-  // const draggableSettings = useDraggable({
-  //   id: props.id,
-  // });
-  // const style = draggableSettings.transform
-  //   ? {
-  //       transform: `translate3d(${
-  //         props.completerTransform?.x || draggableSettings.transform.x
-  //       }px, ${
-  //         props.completerTransform?.y || draggableSettings.transform.y
-  //       }px, 0)`,
-  //     }
-  //   : undefined;
+export function Draggable(props: any) {
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: props.id,
+  });
+  const style = {
+    // Outputs `translate3d(x, y, 0)`
+    transform: CSS.Translate.toString(transform),
+  };
 
   return (
-    <button
-      className="h-[max-content]"
-      // ref={draggableSettings.setNodeRef}
-      // style={style}
-      // {...draggableSettings.listeners}
-      // {...draggableSettings.attributes}
-    >
+    <button ref={setNodeRef} style={style} {...listeners} {...attributes}>
       {props.children}
     </button>
   );

@@ -7,8 +7,9 @@ import mascot from "../../assets/card/MascotPixel.png";
 import { LeaderInfo } from "./components/LeaderInfo/LeaderInfo";
 import { AbilityHeroCard } from "./components/HeroAbilityCard/HeroAbilityCard";
 import { HeroInfo } from "./components/HeroInfo/HeroInfo";
-import { PxToVw } from "@/app/utils";
 import { CardInfo } from "@/app/store/cardStore";
+import { useVariables } from "@/app/shared/hooks/useVariables";
+import { scaleVariable } from "../utils/sscaleFn";
 
 export const HeroCard = ({
   scale = 1,
@@ -21,12 +22,31 @@ export const HeroCard = ({
   switchCard: boolean;
   heroInfo: CardInfo;
 }) => {
+  const {
+    Px340,
+    Px488,
+    Px12,
+    Px4,
+    Px3,
+    Px26,
+    Px69,
+    Px78,
+    Px13,
+    Px15,
+    Px142,
+    Px300,
+    Px325,
+    Px108,
+  } = useVariables();
+
+  scaleVariable({ px: Px340, scale });
+
   return (
     <div className={`${s.wrapper}`}>
       <div
         style={{
-          width: `${PxToVw({ px: 330, scale: scale })}`,
-          height: `${PxToVw({ px: 488, scale: scale })}`,
+          width: `${scaleVariable({ px: Px340, scale })}`,
+          height: `${scaleVariable({ px: Px488, scale })}`,
         }}
         className={`${s.flip_card} 
         ${switchCard ? s.switch : s.switchReturn}
@@ -42,21 +62,19 @@ export const HeroCard = ({
         >
           <div
             style={{
-              borderRadius: `${PxToVw({ px: 12, scale: scale })}`,
-              border: `${PxToVw({ px: 4, scale: scale })} solid black`,
-              padding: `${PxToVw({ px: 3, scale: scale })} ${PxToVw({
-                px: 4,
-                scale: scale,
+              borderRadius: `${scaleVariable({ px: Px12, scale })}`,
+              border: `${scaleVariable({ px: Px4, scale })} solid black`,
+              padding: `${scaleVariable({ px: Px3, scale })} ${scaleVariable({
+                px: Px4,
+                scale,
               })}`,
-              gap: `${PxToVw({ px: 4, scale: scale })}`,
+              gap: `${scaleVariable({ px: Px4, scale })}`,
             }}
             className={`${s.card}`}
           >
             <HeroInfo heroInfo={heroInfo} scale={scale} />
             <div
-              style={{
-                gap: PxToVw({ px: 3, scale: scale }),
-              }}
+              style={{ gap: scaleVariable({ px: Px3, scale }) }}
               className="flex flex-col"
             >
               <AbilityHeroCard
@@ -88,19 +106,19 @@ export const HeroCard = ({
           </div>
           <div
             style={{
-              borderRadius: `${PxToVw({ px: 12, scale: scale })}`,
-              border: `${PxToVw({ px: 4, scale: scale })} solid black`,
-              padding: `${PxToVw({ px: 3, scale: scale })} ${PxToVw({
-                px: 4,
-                scale: scale,
+              borderRadius: `${scaleVariable({ px: Px12, scale })}`,
+              border: `${scaleVariable({ px: Px4, scale })} solid black`,
+              padding: `${scaleVariable({ px: Px3, scale })} ${scaleVariable({
+                px: Px4,
+                scale,
               })}`,
             }}
             className={s.backCard}
           >
             <Image
               style={{
-                width: `${PxToVw({ px: 325, scale: scale })}`,
-                height: `${PxToVw({ px: 108, scale: scale })}`,
+                width: `${scaleVariable({ px: Px325, scale })}`,
+                height: `${scaleVariable({ px: Px108, scale })}`,
               }}
               src={logo}
               alt="hero"
@@ -108,8 +126,8 @@ export const HeroCard = ({
 
             <Image
               style={{
-                width: `${PxToVw({ px: 142, scale: scale })}`,
-                height: `${PxToVw({ px: 300, scale: scale })}`,
+                width: `${scaleVariable({ px: Px142, scale })}`,
+                height: `${scaleVariable({ px: Px300, scale })}`,
               }}
               className="self-center"
               src={backCard}
@@ -117,24 +135,24 @@ export const HeroCard = ({
             />
             <div
               style={{
-                bottom: PxToVw({ px: 15, scale: scale }),
-                left: PxToVw({ px: 13, scale: scale }),
-                width: `calc(100% - ${PxToVw({ px: 26, scale: scale })})`,
+                bottom: scaleVariable({ px: Px15, scale }),
+                left: scaleVariable({ px: Px13, scale }),
+                width: `calc(100% - ${scaleVariable({ px: Px26, scale })})`,
               }}
               className={s.backCardBottom}
             >
               <Image
                 style={{
-                  width: PxToVw({ px: 69, scale: scale }),
-                  height: PxToVw({ px: 78, scale: scale }),
+                  width: scaleVariable({ px: Px69, scale }),
+                  height: scaleVariable({ px: Px78, scale }),
                 }}
                 src={mascot}
                 alt="hero"
               />
               <Image
                 style={{
-                  width: `${PxToVw({ px: 69, scale: scale })}`,
-                  height: `${PxToVw({ px: 78, scale: scale })}`,
+                  width: `${scaleVariable({ px: Px69, scale })}`,
+                  height: `${scaleVariable({ px: Px78, scale })}`,
                 }}
                 src={mascot}
                 alt="hero"

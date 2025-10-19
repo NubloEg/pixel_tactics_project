@@ -10,8 +10,8 @@ export default function GameCard(game: {
 }) {
   return (
     <UILink key={game.id} href={`/game`}>
-      <div className="bg-slate-400 w-[13.333vw] h-[max-content] transition-all duration-[0.3s] rounded-[0.625vw]  flex flex-col p-[0.625vw] cursor-pointer hover:bg-slate-500">
-        <div className="sgamef-center">{game.title}</div>
+      <div className="bg-slate-400 text-white w-[13.333vw] h-[max-content] transition-all duration-[0.3s] rounded-[0.625vw]  flex flex-col p-[0.625vw] cursor-pointer hover:bg-slate-500">
+        <div className="text-center">{game.title}</div>
         <div className="flex justify-between">
           <div className="flex flex-col items-center gap-[0.208vw]">
             <UIAvatar />

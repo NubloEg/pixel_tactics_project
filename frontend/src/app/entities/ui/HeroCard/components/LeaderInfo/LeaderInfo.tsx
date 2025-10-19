@@ -8,8 +8,9 @@ import sheet from "../../../../assets/icons/Sheet.png";
 
 // 👇 import local font
 import localFont from "next/font/local";
-import { PxToVw } from "@/app/utils";
 import { CardInfo } from "@/app/store/cardStore";
+import { useVariables } from "@/app/shared/hooks/useVariables";
+import { scaleVariable } from "../../../utils/sscaleFn";
 
 //👇 Configure our local font object
 const pixelFontText = localFont({
@@ -26,25 +27,50 @@ export const LeaderInfo = ({
   scale: number;
   heroInfo: CardInfo;
 }) => {
+  const {
+    Px24,
+    Px40,
+    Px10,
+    Px42,
+    Px22,
+    Px12,
+    Px47,
+    Px44,
+    Px137,
+    Px63,
+    Px69,
+    Px14,
+    Px2,
+    Px54,
+    Px86,
+    Px4,
+    Px16,
+    Px15,
+    Px1,
+    Px30,
+    Px25,
+    Px18,
+  } = useVariables();
+
   return (
     <div
       style={{
-        height: PxToVw({ px: 137, scale: scale }),
+        height: scaleVariable({ px: Px137, scale: scale }),
       }}
       className="flex rotate-180"
     >
       <div
         style={{
-          width: PxToVw({ px: 63, scale: scale }),
+          width: scaleVariable({ px: Px63, scale: scale }),
         }}
         className="flex flex-col items-start relative justify-end "
       >
         <Image
           style={{
-            width: PxToVw({ px: 63, scale: scale }),
-            height: PxToVw({ px: 69, scale: scale }),
-            top: `-${PxToVw({ px: 14, scale: scale })}`,
-            left: `-${PxToVw({ px: 2, scale: scale })}`,
+            width: scaleVariable({ px: Px63, scale: scale }),
+            height: scaleVariable({ px: Px69, scale: scale }),
+            top: `-${scaleVariable({ px: Px14, scale: scale })}`,
+            left: `-${scaleVariable({ px: Px2, scale: scale })}`,
           }}
           className="absolute"
           src={leaderLabel}
@@ -52,9 +78,9 @@ export const LeaderInfo = ({
         />
         <Image
           style={{
-            width: PxToVw({ px: 54, scale: scale }),
-            height: PxToVw({ px: 86, scale: scale }),
-            marginLeft: `${PxToVw({ px: 4, scale: scale })}`,
+            width: scaleVariable({ px: Px54, scale: scale }),
+            height: scaleVariable({ px: Px86, scale: scale }),
+            marginLeft: `${scaleVariable({ px: Px4, scale: scale })}`,
           }}
           className="z-[2]"
           src={heroInfo.iconHero}
@@ -65,17 +91,17 @@ export const LeaderInfo = ({
         <div style={pixelFontText.style} className="flex flex-col">
           <span
             style={{
-              fontSize: PxToVw({ px: 40, scale: scale }),
-              lineHeight: PxToVw({ px: 22, scale: scale }),
+              fontSize: scaleVariable({ px: Px40, scale: scale }),
+              lineHeight: scaleVariable({ px: Px22, scale: scale }),
             }}
           >
             {heroInfo.leader.name}
           </span>
           <span
             style={{
-              fontSize: PxToVw({ px: 16, scale: scale }),
-              lineHeight: PxToVw({ px: 14.611, scale: scale }),
-              paddingLeft: PxToVw({ px: 1, scale: scale }),
+              fontSize: scaleVariable({ px: Px16, scale: scale }),
+              lineHeight: scaleVariable({ px: Px15, scale: scale }),
+              paddingLeft: scaleVariable({ px: Px1, scale: scale }),
             }}
           >
             {heroInfo.leader.description}
@@ -84,22 +110,22 @@ export const LeaderInfo = ({
         <div className="flex flex-1 justify-between items-center">
           <Image
             style={{
-              width: PxToVw({ px: 24, scale: scale }),
-              height: PxToVw({ px: 30, scale: scale }),
+              width: scaleVariable({ px: Px24, scale: scale }),
+              height: scaleVariable({ px: Px30, scale: scale }),
             }}
             src={partOne}
             alt="partOne"
           />
           <div
             style={{
-              gap: PxToVw({ px: 12, scale: scale }),
+              gap: scaleVariable({ px: Px12, scale: scale }),
             }}
             className="flex items-center justify-between"
           >
             <div
               style={{
-                width: PxToVw({ px: 47, scale: scale }),
-                height: PxToVw({ px: 47, scale: scale }),
+                width: scaleVariable({ px: Px47, scale: scale }),
+                height: scaleVariable({ px: Px47, scale: scale }),
               }}
               className={` relative flex items-center justify-center`}
             >
@@ -111,8 +137,8 @@ export const LeaderInfo = ({
               <span
                 style={{
                   ...pixelFontNumber.style,
-                  fontSize: PxToVw({ px: 40, scale: scale }),
-                  lineHeight: PxToVw({ px: 25, scale: scale }),
+                  fontSize: scaleVariable({ px: Px40, scale: scale }),
+                  lineHeight: scaleVariable({ px: Px25, scale: scale }),
                 }}
                 className=" z-[2] white-text text-[#CA2E21] "
               >
@@ -121,8 +147,8 @@ export const LeaderInfo = ({
             </div>
             <div
               style={{
-                width: PxToVw({ px: 42, scale: scale }),
-                height: PxToVw({ px: 44, scale: scale }),
+                width: scaleVariable({ px: Px42, scale: scale }),
+                height: scaleVariable({ px: Px44, scale: scale }),
               }}
               className={`relative flex items-center justify-center`}
             >
@@ -134,8 +160,8 @@ export const LeaderInfo = ({
               <span
                 style={{
                   ...pixelFontNumber.style,
-                  fontSize: PxToVw({ px: 40, scale: scale }),
-                  lineHeight: PxToVw({ px: 25, scale: scale }),
+                  fontSize: scaleVariable({ px: Px40, scale: scale }),
+                  lineHeight: scaleVariable({ px: Px25, scale: scale }),
                 }}
                 className=" z-[2] white-text text-[#24377D] "
               >
@@ -147,8 +173,8 @@ export const LeaderInfo = ({
         <div
           style={{
             ...pixelFontText.style,
-            fontSize: PxToVw({ px: 18, scale: scale }),
-            lineHeight: PxToVw({ px: 10, scale: scale }),
+            fontSize: scaleVariable({ px: Px18, scale: scale }),
+            lineHeight: scaleVariable({ px: Px10, scale: scale }),
           }}
           className="tracking-[0.036vw] flex-1"
         >

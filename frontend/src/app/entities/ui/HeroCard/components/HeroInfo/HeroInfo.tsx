@@ -8,8 +8,9 @@ import heroLabel from "../../../../assets/icons/heroLabel.png";
 
 // 👇 import local font
 //import localFont from "next/font/local";
-import { PxToVw } from "@/app/utils";
 import { CardInfo } from "@/app/store/cardStore";
+import { useVariables } from "@/app/shared/hooks/useVariables";
+import { scaleVariable } from "../../../utils/sscaleFn";
 
 // //👇 Configure our local font object
 // const pixelFontText = localFont({
@@ -26,25 +27,43 @@ export const HeroInfo = ({
   scale: number;
   heroInfo: CardInfo;
 }) => {
+  const {
+    Px24,
+    Px70,
+    Px66,
+    Px40,
+    Px50,
+    Px10,
+    Px46,
+    Px42,
+    Px43,
+    Px22,
+    Px12,
+    Px48,
+    Px47,
+    Px41,
+    Px44,
+  } = useVariables();
+
   return (
     <div
       style={{
-        fontSize: `${PxToVw({ px: 24, scale: scale })}`,
-        lineHeight: `${PxToVw({ px: 24, scale: scale })}`,
-        maxHeight: `${PxToVw({ px: 70, scale: scale })}`,
+        fontSize: `${scaleVariable({ px: Px24, scale: scale })}`,
+        lineHeight: `${scaleVariable({ px: Px24, scale: scale })}`,
+        maxHeight: `${scaleVariable({ px: Px70, scale: scale })}`,
       }}
       className={s.heroInfo}
     >
       <Image
         style={{
-          height: `${PxToVw({ px: 66, scale: scale })}`,
-          width: `${PxToVw({ px: 40, scale: scale })}`,
+          height: `${scaleVariable({ px: Px66, scale: scale })}`,
+          width: `${scaleVariable({ px: Px40, scale: scale })}`,
         }}
         src={heroInfo.iconHero}
         alt="hero"
       />
       <div
-        style={{ paddingLeft: PxToVw({ px: 50, scale: scale }) }}
+        style={{ paddingLeft: scaleVariable({ px: Px50, scale: scale }) }}
         className="flex flex-1 flex-col"
       >
         {/* style={pixelFontText.style} */}
@@ -52,31 +71,31 @@ export const HeroInfo = ({
           <Image
             style={{
               position: "absolute",
-              top: `-${PxToVw({ px: 10, scale: scale })}`,
-              left: `${PxToVw({ px: 46, scale: scale })}`,
-              width: `${PxToVw({ px: 42, scale: scale })}`,
-              height: `${PxToVw({ px: 43, scale: scale })}`,
+              top: `-${scaleVariable({ px: Px10, scale: scale })}`,
+              left: `${scaleVariable({ px: Px46, scale: scale })}`,
+              width: `${scaleVariable({ px: Px42, scale: scale })}`,
+              height: `${scaleVariable({ px: Px43, scale: scale })}`,
             }}
             src={heroLabel}
             alt="heroLabel"
           />
           <span
             style={{
-              fontSize: PxToVw({ px: 40, scale: scale }),
-              lineHeight: PxToVw({ px: 22, scale: scale }),
+              fontSize: scaleVariable({ px: Px40, scale: scale }),
+              lineHeight: scaleVariable({ px: Px22, scale: scale }),
             }}
           >
             {heroInfo.hero.name}
           </span>
         </div>
         <div
-          style={{ gap: PxToVw({ px: 12, scale: scale }) }}
+          style={{ gap: scaleVariable({ px: Px12, scale: scale }) }}
           className="flex flex-1 items-center justify-end "
         >
           <div
             style={{
-              width: `${PxToVw({ px: 48, scale: scale })}`,
-              height: `${PxToVw({ px: 47, scale: scale })}`,
+              width: `${scaleVariable({ px: Px48, scale: scale })}`,
+              height: `${scaleVariable({ px: Px47, scale: scale })}`,
             }}
             className={`${s.attack} relative flex items-center justify-center`}
           >
@@ -88,8 +107,8 @@ export const HeroInfo = ({
             {/* ...pixelFontNumber.style */}
             <span
               style={{
-                fontSize: PxToVw({ px: 40, scale: scale }),
-                lineHeight: PxToVw({ px: 22, scale: scale }),
+                fontSize: scaleVariable({ px: Px40, scale: scale }),
+                lineHeight: scaleVariable({ px: Px22, scale: scale }),
               }}
               className="z-[2] text-[#CA2E21] white-text"
             >
@@ -98,8 +117,8 @@ export const HeroInfo = ({
           </div>
           <div
             style={{
-              width: `${PxToVw({ px: 41, scale: scale })}`,
-              height: `${PxToVw({ px: 44, scale: scale })}`,
+              width: `${scaleVariable({ px: Px41, scale: scale })}`,
+              height: `${scaleVariable({ px: Px44, scale: scale })}`,
             }}
             className={`${s.sheet} relative flex items-center justify-center`}
           >
@@ -111,8 +130,8 @@ export const HeroInfo = ({
             {/* ...pixelFontNumber.style, */}
             <span
               style={{
-                fontSize: PxToVw({ px: 40, scale: scale }),
-                lineHeight: PxToVw({ px: 22, scale: scale }),
+                fontSize: scaleVariable({ px: Px40, scale: scale }),
+                lineHeight: scaleVariable({ px: Px22, scale: scale }),
               }}
               className="z-[2] text-[#24377D] white-text"
             >

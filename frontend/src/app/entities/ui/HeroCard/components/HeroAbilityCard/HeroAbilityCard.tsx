@@ -4,7 +4,8 @@ import s from "../../HeroCard.module.scss";
 // 👇 import local font
 import localFont from "next/font/local";
 import { AbilityTypeEnum } from "@/entities/models/Card";
-import { PxToVw } from "@/app/utils";
+import { useVariables } from "@/app/shared/hooks/useVariables";
+import { scaleVariable } from "../../../utils/sscaleFn";
 
 //👇 Configure our local font object
 // const pixelFontText = localFont({
@@ -32,21 +33,23 @@ export const AbilityHeroCard = ({
     Order: s.Order,
   };
 
+  const { Px12, Px62, Px2, Px5, Px4, Px34, Px32, Px9 } = useVariables();
+
   return (
     <div
       style={{
-        minHeight: PxToVw({ px: 62, scale: scale }),
-        borderRadius: PxToVw({ px: 12, scale: scale }),
-        border: `${PxToVw({ px: 5, scale: scale })} solid black`,
-        padding: PxToVw({ px: 2, scale: scale }),
-        gap: PxToVw({ px: 4, scale: scale }),
+        minHeight: scaleVariable({ px: Px62, scale: scale }),
+        borderRadius: scaleVariable({ px: Px12, scale: scale }),
+        border: `${scaleVariable({ px: Px5, scale: scale })} solid black`,
+        padding: scaleVariable({ px: Px2, scale: scale }),
+        gap: scaleVariable({ px: Px4, scale: scale }),
       }}
       className={`${s.ability} ${styles[type] || ""}`}
     >
       <div
         style={{
-          fontSize: PxToVw({ px: 34, scale: scale }),
-          lineHeight: PxToVw({ px: 32, scale: scale }),
+          fontSize: scaleVariable({ px: Px34, scale: scale }),
+          lineHeight: scaleVariable({ px: Px32, scale: scale }),
         }}
         className={s.iconsAbility}
       >
@@ -56,7 +59,7 @@ export const AbilityHeroCard = ({
         <div
           style={{
             ...pixelFontNumber.style,
-            fontSize: PxToVw({ px: 8.659, scale: scale }),
+            fontSize: scaleVariable({ px: Px9, scale: scale }),
           }}
           className={s.discription}
         >

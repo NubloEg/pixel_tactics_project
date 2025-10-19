@@ -24,11 +24,11 @@ export interface CardInfo {
   };
 }
 
-import assassin from "../../entities/assets/pixelHero/AssassinPixel.png";
-import knight from "../../entities/assets/pixelHero/KnightPixel.png";
-import mascot from "../../entities/assets/pixelHero/MascotPixel.png";
-import scientist from "../../entities/assets/pixelHero/ScientistPixel.png";
-import gunner from "../../entities/assets/pixelHero/GunnerPixel.png";
+import assassin from "../entities/assets/pixelHero/AssassinPixel.png";
+import knight from "../entities/assets/pixelHero/KnightPixel.png";
+import mascot from "../entities/assets/pixelHero/MascotPixel.png";
+import scientist from "../entities/assets/pixelHero/ScientistPixel.png";
+import gunner from "../entities/assets/pixelHero/GunnerPixel.png";
 
 class CardStore {
   private cards: CardInfo[] = [

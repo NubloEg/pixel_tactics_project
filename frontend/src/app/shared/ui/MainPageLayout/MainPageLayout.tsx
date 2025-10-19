@@ -13,7 +13,7 @@ export default function MainPageLayout({
     <div className="flex w-[100vw] h-[100dvh]">
       <SaidBar />
       <div
-        className={`${s.wrapper} ${className} w-[100%] h-[100%] overflow-auto p-3 bg-[url('/bg/bgMascot.png')]`}
+        className={`${s.wrapper} ${className} w-[100%] h-[100%] overflow-auto p-3 bg-[url('/bg/bgMascot.png')] bg-cover`}
       >
         {children}
       </div>

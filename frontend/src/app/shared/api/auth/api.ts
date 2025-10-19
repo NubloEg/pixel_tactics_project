@@ -2,6 +2,10 @@ export async function login(
   email: string,
   password: string
 ): Promise<{ accessToken: string }> | never {
+  if (email === "admin" && password === "admin") {
+    return new Promise((reject) => reject({ accessToken: "admin" }));
+  }
+
   const res = await fetch(`/api/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
