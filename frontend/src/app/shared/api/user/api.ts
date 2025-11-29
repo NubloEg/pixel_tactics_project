@@ -3,7 +3,7 @@ import { baseApi } from "../baseApi";
 import { Profile } from "@/app/store/profileStore";
 
 export async function getUserProfile(): Promise<Profile> {
-  return baseApi({ url: "/api/users/profile", method: "GET" });
+  return baseApi({ url: "/api/profile", method: "GET" });
 }
 
 export async function getAllAchivments(): Promise<IAchievement[]> {

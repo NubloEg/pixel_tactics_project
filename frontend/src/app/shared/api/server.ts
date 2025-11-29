@@ -1,5 +1,5 @@
 export const mockApiData: { [key: string]: unknown } = {
-  "/api/users/profile": {
+  "/api/profile": {
     id: "user-123",
     name: "Иван Иванов",
     img: "https://avatars.dzeninfra.ru/get-zen_doc/1703756/pub_5dada023028d6800b0360208_5dada03305fd9800add779c0/scale_1200",
