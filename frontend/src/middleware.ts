@@ -4,12 +4,8 @@ import type { NextRequest } from "next/server";
 const PUBLIC_ROUTES = ["/auth", "/bg"];
 
 export function middleware(request: NextRequest) {
-  if (process.env.NEXT_PUBLIC_USE_MOCK) return NextResponse.next();
-
   const { pathname } = request.nextUrl;
-
   const token = request.cookies.get("accessToken")?.value;
-
   const isPublic = PUBLIC_ROUTES.some((route) => pathname.startsWith(route));
   const isPagesPath = pathname.split("/")[1] !== "api";
 

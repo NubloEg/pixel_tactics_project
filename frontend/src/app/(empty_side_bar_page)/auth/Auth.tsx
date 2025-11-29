@@ -46,7 +46,7 @@ export default function Auth() {
   };
 
   return (
-    <form className="backdrop-blur-xs flex flex-col min-w-[30%] max-h-[50%] min-h-[max-content] rounded-2xl gap-4 bg-white/30 p-3 border-black border-1 transition-all">
+    <form className="backdrop-blur-xs flex flex-col min-w-[20%]  max-h-[50%] min-h-[max-content] rounded-2xl gap-4 bg-white/30 p-3 border-black border-1 transition-all">
       <h1 className="text-[48px] text-center">
         {isLogin ? "Login" : "Register"}
       </h1>

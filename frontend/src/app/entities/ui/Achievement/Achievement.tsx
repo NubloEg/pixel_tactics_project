@@ -51,7 +51,7 @@ export default function Achievement({
                 image={achievement?.icon}
                 size={"20rem"}
               />
-              <h1 className="text-[2vw] text-center">
+              <h1 className="text-[2vw] leading-[2vw] text-center mb-4">
                 {achievement?.name || "Name achive"}
               </h1>
               <p className="text-gray-400 text-center">

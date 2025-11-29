@@ -7,9 +7,8 @@ export async function baseApi<T>({
 }: {
   url: string;
   method: "GET" | "POST" | "PUT" | "DELETE";
-  data?: Body;
+  data?: unknown;
 }): Promise<T> {
-  console.log(process.env.NEXT_PUBLIC_USE_MOCK);
   if (process.env.NEXT_PUBLIC_USE_MOCK === "true") {
     return mockApiData[url] as T;
   }

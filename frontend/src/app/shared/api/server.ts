@@ -148,4 +148,12 @@ export const mockApiData: { [key: string]: unknown } = {
         "Уничтожьте все юниты противника до того, как атаковать лидера.",
     },
   ],
+  "/api/games": [
+    {
+      id: "1",
+      player1: "Egor",
+      player2: "Лиза",
+      title: "Игра 1",
+    },
+  ],
 };

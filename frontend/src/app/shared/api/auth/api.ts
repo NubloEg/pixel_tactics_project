@@ -2,8 +2,14 @@ export async function login(
   email: string,
   password: string
 ): Promise<{ accessToken: string }> | never {
-  if (email === "admin" && password === "admin") {
-    return new Promise((reject) => reject({ accessToken: "admin" }));
+  if (
+    email === "admin" &&
+    password === "admin" &&
+    process.env.NEXT_PUBLIC_USE_MOCK
+  ) {
+    const mockToken = "admin";
+    document.cookie = `accessToken=${mockToken}; Path=/; SameSite=Lax`;
+    return Promise.resolve({ accessToken: mockToken });
   }
 
   const res = await fetch(`/api/auth/login`, {
@@ -42,6 +48,11 @@ export async function register(
 }
 
 export async function logout(): Promise<void> | never {
+  if (process.env.NEXT_PUBLIC_USE_MOCK) {
+    document.cookie = "name=; Max-Age=0";
+    return;
+  }
+
   const res = await fetch(`/api/auth/logout`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
