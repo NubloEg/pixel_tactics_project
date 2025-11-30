@@ -32,6 +32,7 @@ export default function Auth() {
       newParams.set("mode", "login");
       router.replace(`${pathname}?${newParams.toString()}`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const mutation = useMutation({

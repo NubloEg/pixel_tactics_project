@@ -22,7 +22,7 @@ export function HeroCardContainer({ id }: { id: number }) {
       />
       {isOpen &&
         ReactDOM.createPortal(
-          <UIModal onClose={setIsOpen}>
+          <UIModal isOpen={isOpen} onClose={setIsOpen}>
             <HeroCardSettings
               heroInfo={heroInfo}
               scale={1.3}
