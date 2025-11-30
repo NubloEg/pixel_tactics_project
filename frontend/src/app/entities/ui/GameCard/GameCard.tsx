@@ -5,8 +5,7 @@ import React from "react";
 export default function GameCard(game: {
   id: string;
   title: string;
-  player1: string;
-  player2: string;
+  players: { username: string }[];
 }) {
   return (
     <UILink key={game.id} href={`/game`}>
@@ -15,11 +14,11 @@ export default function GameCard(game: {
         <div className="flex justify-between">
           <div className="flex flex-col items-center gap-[0.208vw]">
             <UIAvatar />
-            <div>{game.player1}</div>
+            <div>{game.players[0].username}</div>
           </div>
           <div className="flex flex-col items-center gap-[0.208vw]">
             <UIAvatar />
-            <div>{game.player2}</div>
+            <div>{game.players[1]?.username || "Пусто"}</div>
           </div>
         </div>
       </div>

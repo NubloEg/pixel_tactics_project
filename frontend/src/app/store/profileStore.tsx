@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 
 export interface Profile {
   id: string;
-  name: string;
+  username: string;
   img: string;
   rating: string;
   lvl: {

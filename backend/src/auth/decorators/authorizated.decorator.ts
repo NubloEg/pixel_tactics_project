@@ -1,6 +1,6 @@
-import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { User } from '@prisma/client';
-import { Request } from 'express';
+import { createParamDecorator, ExecutionContext } from "@nestjs/common";
+import { User } from "@prisma/client";
+import { Request } from "express";
 
 export const Authorized = createParamDecorator(
   (data: keyof User, ctx: ExecutionContext) => {

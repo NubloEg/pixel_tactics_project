@@ -13,14 +13,12 @@ export async function baseApi<T>({
     return mockApiData[url] as T;
   }
 
-  const token = JSON.parse(localStorage.getItem("accessToken") || "");
-
   const res = await fetch(url, {
     method,
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
     },
+    credentials: "include",
     body: JSON.stringify(data),
   });
 

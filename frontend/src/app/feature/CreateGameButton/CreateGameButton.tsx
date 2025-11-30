@@ -2,7 +2,7 @@ import { CreateGameModal } from "@/app/widgets/CreateGameModal/CreateGameModal";
 import React from "react";
 
 export const CreateGameButton = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <>

@@ -4,8 +4,7 @@ export async function getAllGames(): Promise<
   {
     id: string;
     title: string;
-    player1: string;
-    player2: string;
+    players: { username: string }[];
   }[]
 > {
   return baseApi({ url: "/api/games", method: "GET" });

@@ -63,7 +63,7 @@ export default function SaidBar() {
         >
           <UIAvatar image={profile?.img} size={Px60} />
           <div className={`flex flex-col text-[${Px16}]`}>
-            <span>{profile?.name}</span>
+            <span>{profile?.username}</span>
             <span>{`Уровень ${profile?.lvl.value}`}</span>
           </div>
         </div>

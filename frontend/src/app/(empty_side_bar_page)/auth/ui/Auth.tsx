@@ -50,7 +50,13 @@ export default function Auth() {
   };
 
   return (
-    <form className="relative z-10 backdrop-blur-xs flex flex-col min-w-[20%] max-h-[50%] min-h-[max-content] rounded-2xl gap-4 bg-white/30 p-3 border-black border-1 transition-all">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleClick();
+      }}
+      className="relative z-10 backdrop-blur-xs flex flex-col min-w-[20%] max-h-[50%] min-h-[max-content] rounded-2xl gap-4 bg-white/30 p-3 border-black border-1 transition-all"
+    >
       <h1 className="text-[48px] text-center">
         {isLogin ? "Вход" : "Регистрация"}
       </h1>
@@ -87,15 +93,9 @@ export default function Auth() {
         {isLogin ? "Регистрация" : "Вход"}
       </UILink>
 
-      <UIButton onClick={handleClick} disabled={mutation.isPending}>
+      <UIButton type="submit" disabled={mutation.isPending}>
         {mutation.isPending ? <Loading /> : isLogin ? "Вход" : "Регистрация"}
       </UIButton>
-
-      {mutation.isError && (
-        <p className="text-red-500 mt-2">
-          {mutation.error?.message || "Ошибка при авторизации"}
-        </p>
-      )}
     </form>
   );
 }

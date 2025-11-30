@@ -1,9 +1,9 @@
-import { AuthService } from './../auth/auth.service';
-import { ConfigService } from '@nestjs/config';
-import { ExtractJwt, Strategy } from 'passport-jwt';
-import { PassportStrategy } from '@nestjs/passport';
-import { Injectable } from '@nestjs/common';
-import { JwtPayload } from 'src/auth/interfaces/jwt.interface';
+import { AuthService } from "./../auth/auth.service";
+import { ConfigService } from "@nestjs/config";
+import { ExtractJwt, Strategy } from "passport-jwt";
+import { PassportStrategy } from "@nestjs/passport";
+import { Injectable } from "@nestjs/common";
+import { JwtPayload } from "src/auth/interfaces/jwt.interface";
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -12,10 +12,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     private readonly authService: AuthService,
   ) {
     super({
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        (req) => req?.cookies?.accessToken,
+      ]),
       ignoreExpiration: false,
-      secretOrKey: configService.getOrThrow<string>('JWT_SECRET'),
-      algorithms: ['HS256'],
+      secretOrKey: configService.getOrThrow<string>("JWT_SECRET"),
+      algorithms: ["HS256"],
     });
   }
 
